@@ -192,8 +192,8 @@ public class JavaCodeCompletionHelper {
 			// If the two expected elements have a different parent in the syntax definition,
 			// we must not discard the second element, because is probably stems from a parent
 			// rule.
-			org.emftext.language.java.resource.java.grammar.JavaSyntaxElement symtaxElementOfThis = elementAtIndex.getTerminal().getSymtaxElement();
-			org.emftext.language.java.resource.java.grammar.JavaSyntaxElement symtaxElementOfNext = elementAtNext.getTerminal().getSymtaxElement();
+			org.emftext.language.java.resource.java.grammar.JavaSyntaxElement symtaxElementOfThis = elementAtIndex.getTerminal().getSyntaxElement();
+			org.emftext.language.java.resource.java.grammar.JavaSyntaxElement symtaxElementOfNext = elementAtNext.getTerminal().getSyntaxElement();
 			boolean differentParent = symtaxElementOfNext.getParent() != symtaxElementOfThis.getParent();
 			
 			boolean sameStartExcludingHiddenTokens = elementAtIndex.getStartExcludingHiddenTokens() == elementAtNext.getStartExcludingHiddenTokens();
