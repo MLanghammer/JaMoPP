@@ -594,8 +594,8 @@ public class JavaClasspath extends AdapterImpl {
 			return;
 		}
 
-		if (!packageName.endsWith(".")) {
-			packageName = packageName + ".";
+		if (!packageName.endsWith(JavaUniquePathConstructor.PACKAGE_SEPARATOR)) {
+			packageName = packageName + JavaUniquePathConstructor.PACKAGE_SEPARATOR;
 		}
 
 		String innerName = classifierName;
@@ -677,7 +677,7 @@ public class JavaClasspath extends AdapterImpl {
 	 * @return list of proxies
 	 */
 	public EList<EObject> getClassifiers(String packageName, String classifierQuery) {
-		int idx = classifierQuery.lastIndexOf("$");
+		int idx = classifierQuery.lastIndexOf(JavaUniquePathConstructor.CLASSIFIER_SEPARATOR);
 		if (idx >= 0) {
 			packageName = packageName + classifierQuery.substring(0, idx + 1);
 			classifierQuery = classifierQuery.substring(idx + 1);

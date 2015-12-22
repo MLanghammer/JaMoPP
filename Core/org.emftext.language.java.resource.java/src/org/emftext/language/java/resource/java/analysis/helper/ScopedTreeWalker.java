@@ -212,14 +212,14 @@ public class ScopedTreeWalker {
 								if (!currentBestResult.eIsProxy() && currentBestResult.eResource() == null) {
 									Resource containerResource = container.eResource();
 									if (containerResource != null) {
-										//for package references and the array length field: 
-										//check if there already is a suitable element in 
+										//for package references and the array length field:
+										//check if there already is a suitable element in
 										//the resource, or create one if not.
 										for (EObject content : container.eResource().getContents()) {
 											if (content.eClass().equals(currentBestResult.eClass())) {
 												if (content instanceof NamedElement) {
 													NamedElement cand = (NamedElement) content;
-													if (((NamedElement) content).getName().equals(((NamedElement)currentBestResult).getName())) {
+													if (cand.getName().equals(((NamedElement)currentBestResult).getName())) {
 														currentBestResult = cand;
 													}
 												}
